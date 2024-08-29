@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import orderRoute from './routes/orderRoute.js'
 import productRoute from './routes/productRoute.js'
+import stockRoute from './routes/stockRoute.js'
 
 
 let port = process.env.PORT || 6060
@@ -16,6 +17,7 @@ app.use(cors({
 app.use(express.static('public'))
 app.use('/order',orderRoute)
 app.use('/product',productRoute)
+app.use('/stock',stockRoute)
 app.listen(port,()=>{
     console.log('http://localhost:'+port);
 })
