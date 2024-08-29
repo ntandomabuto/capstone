@@ -14,4 +14,12 @@ const insertProductDb = async (prod_name,category,brand,price,quantity,prod_url,
     let [data] = await pool.query('insert into products (prod_name,category,brand,price,quantity,prod_url,prod_description) values (?,?,?,?,?,?,?)',[prod_name,category,brand,price,quantity,prod_url,prod_description])
 }
 
-export {getProductsDb,getProductDb,insertProductDb}
+const updateProductDb = async (prod_name,category,brand,price,quantity,prod_url,prod_description,id)=>{
+    let [data] = await pool.query('update products set prod_name=?,category=?,brand=?,price=?,quantity=?,prod_url=?,prod_description=? where prod_id=?',[prod_name,category,brand,price,quantity,prod_url,prod_description,id])
+    return data
+}
+
+const deleteProductDb = async (id)=>{
+    await pool.query('delete from products where prod_id=?',[id])
+}
+export {getProductsDb,getProductDb,insertProductDb,updateProductDb,deleteProductDb}
