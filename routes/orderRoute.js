@@ -5,7 +5,7 @@ import { verifyAToken } from '../middleware/authenticate.js'
 const router = express.Router()
 
 
-router.use(verifyAToken)
+// router.use(verifyAToken)
 router.get('/',getOrders)
 router.post('/insert',insertOrder)
 

@@ -27,7 +27,7 @@
                 <td>Gets a single user by ID</td>
             </tr>
             <tr>
-                <td>/user/</td>
+                <td>/user/insert</td>
                 <td>POST</td>
                 <td>Adds a user</td>
             </tr>
@@ -40,6 +40,11 @@
                 <td>/user/id</td>
                 <td>PATCH</td>
                 <td>edits all info of the user by ID</td>
+            </tr>
+            <tr>
+                <td>/user/login</td>
+                <td>POST</td>
+                <td>user login</td>
             </tr>
             <tr>
                 <td>PRODUCTS TABLE</td>
@@ -55,7 +60,7 @@
                 <td>Gets a single product by ID</td>
             </tr>
             <tr>
-                <td>/products/</td>
+                <td>/product/insert</td>
                 <td>POST</td>
                 <td>Adds a product</td>
             </tr>
@@ -68,6 +73,64 @@
                 <td>/product/id</td>
                 <td>PATCH</td>
                 <td>edits all info of the product by ID</td>
+            </tr>
+
+            <tr>
+                <td>ORDERS TABLE</td>
+            </tr>
+            <tr>
+                <td>/order/</td>
+                <td>GET</td>
+                <td>Gets all of the orders</td>
+            </tr>
+            <tr>
+                <td>/order/id</td>
+                <td>GET</td>
+                <td>Gets a single order by ID</td>
+            </tr>
+            <tr>
+                <td>/order/insert</td>
+                <td>POST</td>
+                <td>Adds a order</td>
+            </tr>
+            <tr>
+                <td>/order/id</td>
+                <td>DELETE</td>
+                <td>Deletes a single order by ID</td>
+            </tr>
+            <tr>
+                <td>/order/id</td>
+                <td>PATCH</td>
+                <td>edits all info of the order by ID</td>
+            </tr>
+
+            <tr>
+                <td>STOCK TABLE</td>
+            </tr>
+            <tr>
+                <td>/stock/</td>
+                <td>GET</td>
+                <td>Gets all of the stocks</td>
+            </tr>
+            <tr>
+                <td>/stock/id</td>
+                <td>GET</td>
+                <td>Gets a single stock by ID</td>
+            </tr>
+            <tr>
+                <td>/stock/insert</td>
+                <td>POST</td>
+                <td>Adds a stock</td>
+            </tr>
+            <tr>
+                <td>/stock/id</td>
+                <td>DELETE</td>
+                <td>Deletes a single stock by ID</td>
+            </tr>
+            <tr>
+                <td>/stock/id</td>
+                <td>PATCH</td>
+                <td>edits all info of the stock by ID</td>
             </tr>
         </tbody>
     </table>
