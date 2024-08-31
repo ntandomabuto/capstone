@@ -1,10 +1,34 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="app" style="height: 150vh;">
+    
+    <navbar-comp/>
+    <!-- <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |    
+      <router-link class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" to="/report">Report
+        <ul class="dropdown-menu">
+          <li><router-link class="dropdown-item" to="/order">Orders</router-link></li>
+        </ul>
+      </router-link>  
+    </nav> -->
+    <router-view/>
+    <footer-comp/>
+
+
+
+  </div>
 </template>
+<script>
+import NavbarComp from './components/NavbarComp.vue';
+import FooterComp from './components/FooterComp.vue';
+
+export default{
+  components:{
+    NavbarComp,
+    FooterComp
+  }
+}
+</script>
 
 <style>
 #app {
@@ -25,6 +49,12 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #4442b9;
+}
+body{
+  /* background: rgb(162, 192, 192); */
+  background-image: linear-gradient(rgb(148, 200, 200),rgb(221, 220, 220));
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>
