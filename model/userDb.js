@@ -11,7 +11,7 @@ const fetchUserDb = async (id)=>{
 }
 
 
-const insertUserDb = async (firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile)=>{
+const registerUserDb = async (firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile)=>{
     let [data] = await pool.query('insert into users (firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile) values (?,?,?,?,?,?,?,?)',[firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile])
 }
 
@@ -36,4 +36,5 @@ const loginUserDb = async (email)=>{
 }
 
 
-export {fetchUsersDb,fetchUserDb,insertUserDb,deleteUserDb,updateUserDb,loginUserDb}
+
+export {fetchUsersDb,fetchUserDb,registerUserDb,deleteUserDb,updateUserDb,loginUserDb}

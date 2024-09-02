@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import { fetchUserDb,fetchUsersDb,insertUserDb,updateUserDb,deleteUserDb,loginUserDb } from '../model/userDb.js'
+import { fetchUserDb,fetchUsersDb,registerUserDb,updateUserDb,deleteUserDb,loginUserDb } from '../model/userDb.js'
 
 
 const fetchUsers = async (req,res)=>{
@@ -37,13 +37,14 @@ const deleteUser = async (req,res)=>{
     }
 }
 
-const insertUser = async (req,res)=>{
+
+const registerUser = async (req,res)=>{
     try {
         let {firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile} = req.body
         bcrypt.hash(user_pass,10,async (error,result)=>{
         if(error) throw error
         console.log(result);
-        await insertUserDb(firstname,lastname,age,gender,user_role,email_add,result,user_profile)
+        await registerUserDb(firstname,lastname,age,gender,user_role,email_add,result,user_profile)
         res.send('Added a user')
         })
     } catch (err) {
@@ -83,4 +84,4 @@ const loginUser = (req,res)=>{
 }
 
 
-export {fetchUser,fetchUsers,insertUser,updateUser,deleteUser,loginUser}
+export {fetchUser,fetchUsers,registerUser,updateUser,deleteUser,loginUser}
