@@ -6,6 +6,48 @@
     <h3>Orders list</h3>
     <div class="controls">
       <button class="filter">Filter</button>
+      <div class="admin-container">
+        <button id="adminAddProductBtn" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#adminAddProduct">Add Order</button>
+      </div>
+      <div class="modal fade" id="adminAddProduct" tabindex="-1" aria-labelledby="adminAddProductLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="adminAddProductLabel">Order</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="addProductForm">
+                <div class="mb-3">
+                  <label for="productNum" class="form-label">Ref number</label>
+                  <input type="text" class="form-control" id="productNum" name="productNum" required>
+                </div>
+                <div class="mb-3">
+                  <label for="productName" class="form-label">Items name</label>
+                  <input type="text" class="form-control" id="productName" name="productName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="productQuantity" class="form-label">Total Items</label>
+                  <input type="number" class="form-control" id="productQuantity" name="productQuantity" required>
+                </div>
+                <div class="mb-3">
+                  <label for="productAmount" class="form-label">Price</label>
+                  <input type="text" class="form-control" id="productAmount" name="productAmount" required>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="productCategory" class="form-label">Date</label>
+                  <input type="date" class="form-control" id="productCategory" name="productCategory" required>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id="saveProduct" @click="updateOrder()">Send Request</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <button class="pdf">Pdf</button>
     </div>
     <table>
@@ -37,13 +79,16 @@
           <td>{{ order.total_price }}</td>
           <td>{{ order.status }}</td>
           <td>
-            <button class="view">View</button>
             <button class="edit"><i class="fa-duotone fa-solid fa-pen"></i></button>
-            <button class="delete" @click="deleteOrder(order.tra_id)"><i class="fa-duotone fa-solid fa-trash"></i></button>
+           
+      <button class="delete" @click="deleteOrder(order.tra_id)"><i class="fa-duotone fa-solid fa-trash"></i></button>
+
           </td>
+          
         </tr>
       </tbody>
     </table>
+    <hr>
   </div>
 
         </section>
@@ -55,8 +100,13 @@ export default {
         getOrders(){
             this.$store.dispatch('getOrders')
         },
-        deleteOrder(){
-            this.$store.dispatch('deleteOrder')
+        deleteOrder(tra_id){
+            this.$store.dispatch('deleteOrder',tra_id)
+            console.log('deleted successfully');
+            
+        },
+        updateOrder(tra_id){
+            this.$store.dispatch('updateOrder',tra_id)
         }
     },
     mounted(){

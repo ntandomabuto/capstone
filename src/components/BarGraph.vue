@@ -1,7 +1,15 @@
 <template>
     <div class="container">
-      <h1>World Wine Production</h1>
+      <h3>Top selling products</h3>
       <div class="chart">
+        <div class="x-axis">
+        <span>100</span>
+        <span>80</span>
+        <span>60</span>
+        <span>40</span>
+        <span>20</span>
+        <span>0</span>
+      </div>
         <div class="bar" :style="{ height: earphonesHeight + 'px' }">
           <span class="label">Earphones</span>
         </div>
@@ -11,9 +19,15 @@
         <div class="bar" :style="{ height: smartphoneHeight + 'px' }">
           <span class="label">SmartPhone</span>
         </div>
-      </div>
-      <hr>
-      <!-- <p>Source:  </p> -->
+        <div class="bar" :style="{ height: cameraHeight + 'px' }">
+          <span class="label">Camera</span>
+        </div>
+        <div class="bar" :style="{ height: tabletHeight + 'px' }">
+          <span class="label">Tablet</span>
+        </div>
+    </div>
+    <hr>
+      <p>Source:  </p>
     </div>
   </template>
   
@@ -23,9 +37,11 @@
     data() {
         
       return {
-        earphonesHeight: 70,
+        earphonesHeight: 80,
         laptopHeight: 99,
-        smartphoneHeight: 44,
+        smartphoneHeight: 150,
+        cameraHeight: 44,
+        tabletHeight: 100,
       };
     },
   };
@@ -38,27 +54,47 @@
     align-items: center;
     margin-top: 50px;
   }
-  
+  .x-axis {
+  display: grid;
+  justify-content: space-between;
+  width: 20%;
+  margin-bottom: -15px;
+}
+
+.x-axis span {
+  font-size: 20px;
+}
   .chart {
     display: flex;
     justify-content: space-around;
-    width: 600px;
+    width: 400px;
     margin-top: 20px;
   }
   
   .bar {
     width: 80px;
     background-color: red;
-    margin-top: 20px;
-    position: relative;
+    margin-top: 50px;
+    position:relative;
+    margin-top:auto;
   }
   
   .bar:nth-child(2) {
     background-color: green;
-  }
-  
-  .bar:nth-child(3) {
+    margin-right: 30px;
+}
+
+.bar:nth-child(3) {
     background-color: blue;
+    margin-right: 30px;
+  }
+.bar:nth-child(4) {
+    background-color: rgb(255, 0, 200);
+    margin-right: 30px;
+  }
+.bar:nth-child(5) {
+    background-color: rgb(191, 255, 0);
+    margin-right: 30px;
   }
   
   .label {
@@ -68,4 +104,7 @@
     transform: translateX(-50%);
     font-size: 12px;
   }
+  /* .bar span{
+    
+  } */
   </style>

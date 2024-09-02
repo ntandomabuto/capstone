@@ -37,14 +37,16 @@ export default {
         getProducts(){
             this.$store.dispatch('getProducts')
         }
+        // getProduct(prod_id){
+        //     this.$store.dispatch('getProduct',prod_id)
+        // }
     },
     mounted(){
         this.getProducts()
-    }
+        // this.getProduct()
+    }       
 }
 </script>
 <style scoped>
-    /* body{
-        height: 200vh;
-    } */
-</style>
+
+</style>    

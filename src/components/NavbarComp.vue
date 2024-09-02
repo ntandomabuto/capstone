@@ -7,6 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  flex-column">
+            <li class="nav-item"><router-link class="nav-link" to="/"><img src="https://ntandomabuto.github.io/images/SIW.png" style="width: 5rem;"></router-link></li>
             <li class="nav-item"><router-link class="nav-link" to="/"><i class="fa-duotone fa-solid fa-grip"></i> Dashboard</router-link></li>
             <li class="nav-item"><router-link class="nav-link" to="/about">About</router-link></li>
             <!-- <li class="nav-item"><router-link class="nav-link" to="/products">Products</router-link></li> -->
@@ -33,13 +34,8 @@
   </script>
   
   <style scoped>
-  /* img {
-    width: 5rem;
-    aspect-ratio: 1;
-    object-fit: contain;
-  }
-  
-  .navbar {
+ 
+  /* .navbar {
     background:#2c3e50;
   }
   
@@ -54,11 +50,17 @@
   .navbar .dropdown-menu .dropdown-item:hover {
     background-color: #5689b9;
     color: #ffffff;
-  } */
+  }  */
    li{
     margin-top: 20px;
    }
    .dropdown-menu{
     background: rgb(163, 203, 203);
+   }
+   img{
+    border-radius: 10rem;
+   }
+   .navbar{
+    width: 200px;
    }
   </style>

@@ -31,6 +31,7 @@
     background:#2c3e50;
     color: white;
   }
+
 /*   
   i {
     font-size: 1.2rem;

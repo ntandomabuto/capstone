@@ -1,5 +1,5 @@
 <template>
-  <div class="app" style="height: 150vh;">
+  <div class="app" style="height: 120vh;">
     
     <navbar-comp/>
     <!-- <nav>
@@ -52,9 +52,11 @@ nav a.router-link-exact-active {
   color: #4442b9;
 }
 body{
-  /* background: rgb(162, 192, 192); */
-  background-image: linear-gradient(rgb(148, 200, 200),rgb(221, 220, 220));
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(rgb(148, 200, 200),rgb(221, 220, 220),rgb(148, 200, 200));
+  background-size: inherit;
+  /* background-repeat: no-repeat; */
+}
+*{
+  font-family: 'Courier New', Courier, monospace;
 }
 </style>
