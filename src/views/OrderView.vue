@@ -77,7 +77,7 @@
           <td>{{ order.to_warehouse }}</td>
           <td>{{ order.total_items }}</td>
           <td>{{ order.total_price }}</td>
-          <td>{{ order.status }}</td>
+          <td><p>{{ order.status }}</p></td>
           <td>
             <button class="edit"><i class="fa-duotone fa-solid fa-pen"></i></button>
            
@@ -175,11 +175,10 @@ th {
   background-color: #f2f2f2;
 }
 
-.view,
+
 .edit{
   padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
+  /* border: none; */
   cursor: pointer;
   margin-right: 5px;
 }
@@ -192,11 +191,13 @@ th {
 .edit {
   background-color: #008CBA;
   color: white;
+  border-radius: 2rem;
 }
 
 .delete {
   background-color: #f44336;
-  /* border-radius: 5rex; */
+  border-radius: 2rex;
   color: white;
 }
+
 </style>

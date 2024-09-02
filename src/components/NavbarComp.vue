@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <!-- <router-link class="navbar-brand" to="" id="title"><img src="https://erin-caitlin.github.io/nodeEOMP.images/images/Brand Logo.png" alt="logo" loading="lazy"></router-link> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

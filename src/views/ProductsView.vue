@@ -24,7 +24,7 @@
                     <td>{{product.price}}</td>
                     <td>{{product.quantity}}</td>
                     <!-- <td>{{product.prod_description}}</td> -->
-                    <td><a href="/single"><i class="fa-duotone fa-solid fa-eye"></i></a></td>
+                    <td><a href="/single" @click="getProduct( )"><i class="fa-duotone fa-solid fa-eye"></i></a></td>
                 </tr>
             </tbody>
         </table>
@@ -36,10 +36,10 @@ export default {
     methods:{
         getProducts(){
             this.$store.dispatch('getProducts')
+        },
+        getProduct(prod_id){
+            this.$store.dispatch('getProduct',prod_id)
         }
-        // getProduct(prod_id){
-        //     this.$store.dispatch('getProduct',prod_id)
-        // }
     },
     mounted(){
         this.getProducts()

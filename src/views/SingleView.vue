@@ -10,10 +10,10 @@ export default {
         getProduct(prod_id){
             this.$store.dispatch('getProduct',prod_id)
         }
-    },
-    mounted(){
-        this.getProduct(prod_id)
-    } 
+    }
+    // mounted(){
+    //     this.getProduct(prod_id)
+    // } 
 }
 </script>
 <style>
