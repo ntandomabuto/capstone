@@ -4,6 +4,7 @@ import orderRoute from './routes/orderRoute.js'
 import productRoute from './routes/productRoute.js'
 import stockRoute from './routes/stockRoute.js'
 import userRoute from './routes/userRoute.js'
+import stockaRoute from './routes/stockaRoute.js'
 
 
 let port = process.env.PORT || 6060
@@ -19,6 +20,7 @@ app.use(express.static('public'))
 app.use('/order',orderRoute)
 app.use('/product',productRoute)
 app.use('/stock',stockRoute)
+app.use('/stocka',stockaRoute)
 app.use('/user',userRoute)
 app.listen(port,()=>{
     console.log('http://localhost:'+port);
