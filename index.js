@@ -11,18 +11,18 @@ let port = process.env.PORT || 6060
 const app = express()
 
 
-app.use(express.json())
 app.use(cors({
     origin: '*',
     credentials:true
 }))
-app.use(express.static('public'))
+app.use(express.json())
 app.use('/order',orderRoute)
 app.use('/product',productRoute)
 app.use('/stock',stockRoute)
 app.use('/stocka',stockaRoute)
 app.use('/user',userRoute)
 app.use('/ref',refRoute)
+app.use(express.static('public'))
 app.listen(port,()=>{
     console.log('http://localhost:'+port);
 })
