@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <button class="pdf">Pdf</button>
+      <button class="pdf"><a href=" https://ntandomabuto.github.io/images/Orders.pdf" target="_blank">pdf</a></button>
     </div>
     <table>
       <thead>
@@ -104,17 +104,17 @@ export default {
             this.$store.dispatch('deleteOrder',tra_id)
             console.log('deleted successfully');
             
-        },
-        updateOrder(tra_id){
-            this.$store.dispatch('updateOrder',tra_id)
         }
+        // updateOrder(tra_id){
+        //     this.$store.dispatch('updateOrder',tra_id)
+        // }
     },
     mounted(){
         this.getOrders()
     }
 }
 </script>
-<style >
+<style scoped>
 .container {
   width: 80%;
   /* margin: 0 auto; */
@@ -139,15 +139,17 @@ export default {
   background-color: #f0f0f0;
 }
 
-.excel {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .pdf {
   background-color: #f44336;
-  color: white;
+  /* color: white; */
 }
+.pdf a{
+    color:#ddd;
+    text-decoration: none;
+    padding: 5px;
+}
+
 
 .import {
   background-color: #4CAF50;
@@ -182,11 +184,9 @@ th {
   cursor: pointer;
   margin-right: 5px;
 }
-
-/* .view {
-  background-color: #4CAF50;
-  color: white;
-} */
+#order{
+    margin-top: 50px;
+}
 
 .edit {
   background-color: #008CBA;

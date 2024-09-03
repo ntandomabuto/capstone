@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <h3>Top selling products</h3>
+      <h3><u>Top selling products</u></h3>
       <div class="chart">
         <div class="x-axis">
         <span>100</span>
@@ -26,9 +26,7 @@
           <span class="label">Tablet</span>
         </div>
     </div>
-    <hr>
-      <p>Source:  </p>
-    </div>
+</div>
   </template>
   
   <script>
@@ -53,7 +51,14 @@
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
+    margin-bottom: 15px;
+    /* background-color: rgb(206, 235, 235); */
+    width: 450px;
+    height: 260px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px grey;
   }
+  
   .x-axis {
   display: grid;
   justify-content: space-between;

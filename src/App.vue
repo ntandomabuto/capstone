@@ -5,10 +5,7 @@
     <navbar-comp/> 
     <router-view/>
     </div>
-
-
     <footer-comp/>
-
 
 
   </div>
@@ -32,11 +29,14 @@ export default{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow:hidden;
 
 
 }
 .drag{
   display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 nav {
   padding: 30px;
@@ -57,5 +57,14 @@ body{
 }
 *{
   font-family: 'Courier New', Courier, monospace;
+}
+
+@media (max-width: 600px) {
+  .app {
+    flex-direction: row;
+  }
+  nav {
+    padding: 20px;
+  }
 }
 </style>

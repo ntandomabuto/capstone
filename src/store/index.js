@@ -7,7 +7,11 @@ import axios from 'axios'
 export default createStore({
   state: {
     order:null,
-    product: null
+    product: null,
+    stocka:null,
+    stock:null,
+    recent_invoice:null,
+    recent_sales:null
   },
   getters: {
   },
@@ -26,6 +30,18 @@ export default createStore({
     },
     setProduct(state,payload){
       state.product=payload
+    },
+    setStocka(state,payload){
+      state.stocka=payload
+    },
+    setStock(state,payload){
+      state.stock=payload
+    },
+    setRef(state,payload){
+      state.recent_invoice=payload
+    },
+    setRec(state,payload){
+      state.recent_sales=payload
     }
     
     
@@ -35,6 +51,46 @@ export default createStore({
       try {
         let {data} =await axios.get('https://capstone-7oya.onrender.com/order')
         commit('setOrders',data)
+        
+      } catch (err) {
+        console.log(err);
+        
+      }
+    },
+    async getRec({commit}){
+      try {
+        let {data} =await axios.get('https://capstone-7oya.onrender.com/rec')
+        commit('setRec',data)
+        
+      } catch (err) {
+        console.log(err);
+        
+      }
+    },
+    async getStocka({commit}){
+      try {
+        let {data} =await axios.get('https://capstone-7oya.onrender.com/stocka')
+        commit('setStocka',data)
+        
+      } catch (err) {
+        console.log(err);
+        
+      }
+    },
+    async getStock({commit}){
+      try {
+        let {data} =await axios.get('https://capstone-7oya.onrender.com/stock')
+        commit('setStock',data)
+        
+      } catch (err) {
+        console.log(err);
+        
+      }
+    },
+    async getRef({commit}){
+      try {
+        let {data} =await axios.get('https://capstone-7oya.onrender.com/ref')
+        commit('setRef',data)
         
       } catch (err) {
         console.log(err);

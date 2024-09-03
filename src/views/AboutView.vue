@@ -3,7 +3,7 @@
     <h1>Inventory Management System</h1>
     <p class="subtitle">Track and manage your inventory with ease</p>
     <div class="description">
-      <p>Welcome to our inventory management system! This system is designed to help you track and manage your inventory efficiently. With our system, you can easily add, remove, and update inventory items, as well as view detailed reports and analytics.</p>
+      <p>Welcome to our inventory management system! This system is designed to help you track and manage your inventory efficiently. With our system, you can easily add, remove, and update inventory items, as well as view detailed reports.</p>
     </div>
     <div class="features">
       <h2>Features</h2>
@@ -15,12 +15,8 @@
     <div class="testimonials">
       <h2>Testimonials</h2>
       <blockquote>
-        <p>"This inventory management system has been a game-changer for our business. We've been able to reduce errors and improve efficiency, and the reporting features are incredibly useful."</p>
-        <cite>John Doe, CEO of XYZ Corporation</cite>
-      </blockquote>
-      <blockquote>
-        <p>"I was skeptical at first, but this system is really easy to use and has saved us so much time. The customer support is also top-notch."</p>
-        <cite>Jane Smith, Inventory Manager at ABC Inc.</cite>
+        <p>"This inventory management system has been a game-changer for our business. We've been able to track our product and improve efficiency."</p>
+        <cite>Lisa Lee, Een Tech</cite>
       </blockquote>
     </div>
     <div class="call-to-action">
