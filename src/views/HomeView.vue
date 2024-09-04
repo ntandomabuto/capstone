@@ -43,7 +43,7 @@
          <td>{{ ref.ref_code }}</td>
          <td>{{ ref.customer }}</td>
          <td>{{ ref.amount }}</td>
-         <td>{{ ref.status }}</td>
+         <td :class="{ 'paid': ref.status === 'Paid', 'due':ref.status === 'Due' }">{{ ref.status }}</td>
 
         </tr>
       </tbody>  
@@ -70,9 +70,9 @@
           <td>{{ rec.reference }}</td>
           <td>{{ rec.customer }}</td>
           <td :class="{ 'completed': rec.status === 'Completed', 'incomplete': rec.status === 'Incomplete' }">{{ rec.status }}</td>
-          <td>${{ rec.total }}</td>
-          <td>${{ rec.paid }}</td>
-          <td>${{ rec.due }}</td>
+          <td>{{ rec.total }}</td>
+          <td>{{ rec.paid }}</td>
+          <td>{{ rec.due }}</td>
           <td :class="{ 'paid': rec.pay_status === 'Paid', 'due':rec.pay_status === 'Due' }">{{ rec.pay_status }}</td>
         </tr>
       </tbody>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <a href="/about">SignUp</a>
     </div>
 </template>
 <script>

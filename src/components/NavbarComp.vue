@@ -20,7 +20,7 @@
                     <li><router-link class="dropdown-item" to="/stock">Stock</router-link></li>
                 </ul>
             </li>
-            <li class="nav-item"><router-link class="nav-link" to="/user"><i class="fa-duotone fa-solid fa-user"></i></router-link></li>
+            <li class="nav-item"><router-link class="nav-link" to="/user"><i class="fa-duotone fa-solid fa-user"></i>Profile</router-link></li>
             <!-- <li class="nav-item"><router-link class="nav-link" to="/settings">settings</router-link></li> -->
           </ul>
         </div>

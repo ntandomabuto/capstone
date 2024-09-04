@@ -22,6 +22,9 @@ export default createStore({
     deleteOrder(state, payload) {
       state.order = state.order.filter(order => order.id !== payload);
     },
+    deleteProduct(state, payload) {
+      state.product = state.product.filter(product => product.id !== payload);
+    },
     updateOrder(state,payload){
       state.order = payload
     },
@@ -57,6 +60,21 @@ export default createStore({
         
       }
     },
+    async insertOrder({commit},info){
+        let {data} =await axios.post('https://capstone-7oya.onrender.com/order/insert',info)
+        // commit('setAddOrder',data)
+        console.log(data);
+        
+        
+    },
+    async addProduct({commit},info){
+        let {data} =await axios.post('https://capstone-7oya.onrender.com/product/insert',info)
+        // commit('setAddOrder',data)
+        console.log(data);
+        
+        
+    },
+
     async getRec({commit}){
       try {
         let {data} =await axios.get('https://capstone-7oya.onrender.com/rec')
@@ -118,6 +136,16 @@ export default createStore({
     async deleteOrder({commit},tra_id){
       try {
         let {data} = await axios.delete(`https://capstone-7oya.onrender.com/order/${tra_id}`)
+        console.log(data);
+        
+      } catch (error) {
+        console.log(error);
+        
+      }
+    },
+    async deleteProduct({commit},prod_id){
+      try {
+        let {data} = await axios.delete(`https://capstone-7oya.onrender.com/product/${prod_id}`)
         console.log(data);
         
       } catch (error) {
