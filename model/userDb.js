@@ -12,7 +12,10 @@ const fetchUserDb = async (id)=>{
 
 
 const registerUserDb = async (firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile)=>{
-    let [data] = await pool.query('insert into users (firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile) values (?,?,?,?,?,?,?,?)',[firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile])
+    let defaultUserRole = user_role || 'user';
+    let defaultUserProfile = user_profile || 'https://codjoelmayer.github.io/projectImages/images/profile-Image.png';
+
+    let [data] = await pool.query('insert into users (firstname,lastname,age,gender,user_role,email_add,user_pass,user_profile) values (?,?,?,?,?,?,?,?)',[firstname,lastname,age,gender,defaultUserRole,email_add,user_pass,defaultUserProfile])
 }
 
 const deleteUserDb = async (id)=>{
