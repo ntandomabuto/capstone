@@ -81,6 +81,8 @@ const loginUser = (req,res)=>{
     res.json({
         message:"You have signed in!!",
         token: req.body.token})
+        console.log(token);
+        
 }
 
 
