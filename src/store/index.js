@@ -1,8 +1,11 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
+
 
 /*eslint-disable*/
-// import router from '@/router'
+import router from '@/router'
 
 export default createStore({
   state: {
@@ -11,13 +14,17 @@ export default createStore({
     stocka:null,
     stock:null,
     recent_invoice:null,
-    recent_sales:null
+    recent_sales:null,
+    users:null
   },
   getters: {
   },
   mutations: {
     setOrders(state,payload){
       state.order=payload
+    },
+    setUsers(state,payload){
+      state.users=payload
     },
     deleteOrder(state, payload) {
       state.order = state.order.filter(order => order.id !== payload);
@@ -64,6 +71,38 @@ export default createStore({
         let {data} =await axios.post('https://capstone-7oya.onrender.com/order/insert',info)
         // commit('setAddOrder',data)
         console.log(data);
+        
+        
+    },
+    async loginUser({commit},info){
+        let {data} =await axios.post('https://capstone-7oya.onrender.com/user/login',info)
+        $cookies.set('token',data.token)
+      if (!data.err){
+        toast("login is successful",{
+          "theme": "auto",
+          "type": "default",
+          "autoClose":10000,
+          "dangerouslyHTMLString": true
+        })
+      }
+      await router.push('/')
+      // location.reload()
+        console.log(data);
+        
+        
+    },
+    async registerUser({commit},info){
+        let {data} =await axios.post('https://capstone-7oya.onrender.com/user/register',info)
+        console.log(data);
+        // alert('Siigned up now login on the profile page')
+        toast("Signed up! Now Login on the profile page", {
+          "theme": "auto",
+          "type": "default",
+          "dangerouslyHTMLString": true
+        })
+        await router.push('/user')
+        location.reload()
+  
         
         
     },

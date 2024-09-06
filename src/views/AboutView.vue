@@ -49,11 +49,6 @@
                   <label for="gender" class="form-label">Gender</label>
                   <input type="text" class="form-control" id="gender" name="gender" v-model="gender">
                 </div>
-                
-                <div class="mb-3">
-                  <label for="user_role" class="form-label">Role</label>
-                  <input type="text" class="form-control" id="user_role" name="user_role" v-model="user_role">
-                </div>
                 <div class="mb-3">
                   <label for="email_add" class="form-label">Email Address</label>
                   <input type="email" class="form-control" id="email_add" name="email_add" v-model="email_add">
@@ -66,7 +61,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" id="saveProduct">Sign Up</button>
+              <button type="submit" class="btn btn-primary" id="saveProduct" @click="registerUser()">Sign Up</button>
             </div>
           </div>
         </div>
@@ -83,13 +78,15 @@ export default {
         lastname:'',
         age:'',
         gender:'',
-        user_role:'',
         email_add:'',
         user_pass:''
       }
     },
   methods: {
-    
+    registerUser(){
+      this.$store.dispatch('registerUser',this.$data)
+      // location.reload()
+    }
   }
 }
 </script>
