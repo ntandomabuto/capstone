@@ -112,4 +112,19 @@
   /* .bar span{
     
   } */
+  @media screen and (max-width:320px) {
+   
+      .bar{
+    width: 5px;    
+    margin-left: -50px;    
+    }
+    .chart{
+        width: 290px;
+    }
+    .container{
+        width: 300px;
+    }
+    
+    
+}
   </style>

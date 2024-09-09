@@ -100,8 +100,8 @@ export default createStore({
           "type": "default",
           "dangerouslyHTMLString": true
         })
-        await router.push('/user')
-        location.reload()
+        // await router.push('/')
+        // location.reload()
   
         
         
@@ -144,6 +144,16 @@ export default createStore({
         
       }
     },
+    // async getUser({commit},user_id){
+    //   try {
+    //     let {data} =await axios.get(`https://capstone-7oya.onrender.com/user/${user_id}`)
+    //     commit('setUsers',data)
+        
+    //   } catch (err) {
+    //     console.log(err);
+        
+    //   }
+    // },
     async getRef({commit}){
       try {
         let {data} =await axios.get('https://capstone-7oya.onrender.com/ref')
@@ -163,9 +173,9 @@ export default createStore({
         
       }
     },
-    async getProduct({commit},prod_id){
+    async getProduct({commit},id){
       try {
-        let {data} = await axios.get(`https://capstone-7oya.onrender.com/product/${prod_id}`)
+        let {data} = await axios.get(`https://capstone-7oya.onrender.com/product/${id}`)
         commit('setProduct',data)
       } catch (err) {
         console.log(err);

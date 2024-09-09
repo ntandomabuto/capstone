@@ -59,6 +59,9 @@
    .dropdown-menu{
     background: rgb(163, 203, 203);
    }
+   /* .dropdown-menu li:hover{
+    background-color: aqua;
+   } */
    img{
     border-radius: 10rem;
    }
@@ -66,4 +69,31 @@
     width: 200px;
     
    }
-  </style>
+   @media screen and (max-width:320px) {
+    
+      .navbar{
+        background-color: rgb(148, 200, 200);
+        opacity: .9;
+       
+      }  
+      
+    }
+    @media screen and (max-width:780px) {
+        
+        .navbar{
+          background-color: rgb(148, 200, 200);
+          opacity: .9;
+         
+        }  
+        
+    }
+    @media screen and (max-width:1040px) {
+        
+        .navbar{
+          background-color: rgb(148, 200, 200);
+          opacity: .9;
+         
+        }  
+        
+    }
+    </style>

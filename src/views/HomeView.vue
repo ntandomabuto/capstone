@@ -51,7 +51,7 @@
       
     </div>
     </div>
-    <div class="container">
+    <div class="container2">
     <h1>Recent Sales</h1>
     <table class="t">
       <thead>
@@ -168,5 +168,45 @@ th {
 
 .due {
   color: red;
+}
+@media screen and (max-width:320px) {
+    *{
+      font-size:xx-small;
+      }
+      .tables{
+        display: grid;
+        /* width: 10px; */
+  margin-left: 2px;        
+    }
+    .t {
+      width: 100px;
+      margin: 10%;
+    }
+    
+    
+}
+@media screen and (max-width:780px) {
+    
+      .tables{
+        display: grid;
+        margin: 10%;
+    }
+      .container2{
+        /* display: grid; */
+        margin-left: 5%;
+    }
+    
+}
+@media screen and (max-width:1040px) {
+    
+  .tables{
+        display: grid;
+        /* margin: 10%; */
+    }
+      .container2{
+        /* display: grid; */
+        margin-left: 5%;
+    }
+    
 }
 </style>

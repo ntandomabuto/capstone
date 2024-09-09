@@ -75,7 +75,7 @@
                     <td>{{product.price}}</td>
                     <td>{{product.quantity}}</td>
                     <!-- <td>{{product.prod_description}}</td> -->
-                    <td><a href="/single" @click="getProduct( )"><i class="fa-duotone fa-solid fa-eye"></i></a>
+                    <td><router-link :to="{name:'single',params:{id:product.prod_id}}" class="link-no-decoration"><i class="fa-duotone fa-solid fa-eye"></i></router-link>
                         <button class="delete" @click="deleteProduct(product.prod_id)"><i class="fa-duotone fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
@@ -102,9 +102,9 @@ export default {
         getProducts(){
             this.$store.dispatch('getProducts')
         },
-        getProduct(prod_id){
-            this.$store.dispatch('getProduct',prod_id)
-        },
+        // getProduct(prod_id){
+        //     this.$store.dispatch('getProduct',prod_id)
+        // },
         deleteProduct(prod_id){
             this.$store.dispatch('deleteProduct',prod_id)
             console.log('deleted successfully');

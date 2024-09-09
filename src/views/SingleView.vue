@@ -1,19 +1,25 @@
 <template>
-    <div id="pro" v-for="product in $store.state.product" :key="product.prod_id">
-        <img :src="product.prod_url">
-        {{ product.prod_description }}
+    <div id="pro">
+        <img :src="product?.prod_url">
+        <!-- {{ product.prod_description }} --> 
+          <h4>{{ product?.prod_description }}</h4>
     </div>
 </template>
 <script>
 export default {
     methods:{
-        getProduct(prod_id){
-            this.$store.dispatch('getProduct',prod_id)
+        getProduct(){
+            this.$store.dispatch('getProduct',this.$route.params.id)
         }
-    }
-    // mounted(){
-    //     this.getProduct(prod_id)
-    // } 
+    },
+    computed:{
+        product(){
+            return this.$store.state.product
+        }
+    },
+    mounted(){
+        this.getProduct()
+    } 
 }
 </script>
 <style>

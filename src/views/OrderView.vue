@@ -217,5 +217,10 @@ th {
   border-radius: 2rex;
   color: white;
 }
+/* @media screen and (max-width:320px) {
 
+    table th,td{
+        width: 20px;
+    }    
+} */
 </style>
