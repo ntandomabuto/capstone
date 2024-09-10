@@ -67,6 +67,16 @@ export default createStore({
         
       }
     },
+    async getUsers({commit}){
+      try {
+        let {data} =await axios.get('https://capstone-7oya.onrender.com/user')
+        commit('setUsers',data)
+        
+      } catch (err) {
+        console.log(err);
+        
+      }
+    },
     async insertOrder({commit},info){
         let {data} =await axios.post('https://capstone-7oya.onrender.com/order/insert',info)
         // commit('setAddOrder',data)
