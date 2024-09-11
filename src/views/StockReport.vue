@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <h1>Stocks</h1>
-        <button class="btn btn-secondary">Add Stock</button>
+        <!-- <button class="btn btn-secondary">Add Stock</button> -->
         <table>
             <thead>
                 <tr>

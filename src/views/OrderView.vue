@@ -196,14 +196,14 @@ th {
 }
 
 
+#order{
+    margin-top: 50px;
+}
 .edit{
   padding: 5px 10px;
   /* border: none; */
   cursor: pointer;
   margin-right: 5px;
-}
-#order{
-    margin-top: 50px;
 }
 
 .edit {

@@ -3,6 +3,8 @@
     <h1>Dashboard</h1>
     <!-- <spinner-comp v-if="loading"/> -->
     <bar-graph/>
+    <spinner-comp v-if="loading"/>
+
     <div class="tables">
     <div class="tab">
       <h3>Stock Alert</h3>
@@ -112,6 +114,9 @@ export default {
     this.getStocka()
     this.getRef()
     this.getRec()
+    setTimeout(()=>{
+      this.loading= false
+    },5000)
   }
 
 }

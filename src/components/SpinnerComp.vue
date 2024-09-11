@@ -1,9 +1,16 @@
 <template>
-    <div class="spinner">
-      <div class="spinner-inner">
-        <div class="spinner-circle"></div>
-      </div>
-    </div>
+
+<div class="loader">
+  <div class="red bar"></div>
+  <div class="orange bar"></div>
+  <div class="yellow bar"></div>
+  <div class="green bar"></div>
+  <div class="blue bar"></div>
+</div>
+
+
+
+
   </template>
   
   <script>
@@ -13,42 +20,65 @@
   </script>
   
   <style scoped>
-  .spinner {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
+/* From Uiverse.io by Gianluks90 */ 
+.loader {
+  height: 50px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  margin-left: 700px;
+}
+
+.bar {
+  height: 5px;
+  width: 12px;
+  animation-duration: 0.45s;
+  animation-name: changeHeight;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.red {
+  background-color: #E50000;
+  box-shadow: 1px 1px 10px #E50000;
+  animation-delay: 0.10s;
+}
+
+.orange {
+  background-color: #ec4992;
+  box-shadow: 1px 1px 10px #FF8D00;
+  animation-delay: 0.20s;
+}
+
+.yellow {
+  background-color: #FFEE00;
+  box-shadow: 1px 1px 10px #FFEE00;
+  animation-delay: 0.25s;
+}
+
+.green {
+  background-color: #008121;
+  box-shadow: 1px 1px 10px #008121;
+  animation-delay: 0.30s;
+}
+
+.blue {
+  background-color: #004CFF;
+  box-shadow: 1px 1px 10px #004CFF;
+  animation-delay: 0.35s;
+}
+
+
+
+@keyframes changeHeight {
+  from {
+    height: 5px;
   }
-  
-  .spinner-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 4px solid #ccc;
-    border-top-color: #333;
-    animation: spin 1s linear infinite;
+
+  to {
+    height: 40px;
   }
-  
-  /* .spinner-circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #333;
-  } */
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+}
+
+
   </style>

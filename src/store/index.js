@@ -29,6 +29,9 @@ export default createStore({
     deleteOrder(state, payload) {
       state.order = state.order.filter(order => order.id !== payload);
     },
+    deleteUser(state, payload) {
+      state.users = state.users.filter(users => users.id !== payload);
+    },
     deleteProduct(state, payload) {
       state.product = state.product.filter(product => product.id !== payload);
     },
@@ -195,6 +198,16 @@ export default createStore({
     async deleteOrder({commit},tra_id){
       try {
         let {data} = await axios.delete(`https://capstone-7oya.onrender.com/order/${tra_id}`)
+        console.log(data);
+        
+      } catch (error) {
+        console.log(error);
+        
+      }
+    },
+    async deleteUser({commit},user_id){
+      try {
+        let {data} = await axios.delete(`https://capstone-7oya.onrender.com/user/${user_id}`)
         console.log(data);
         
       } catch (error) {

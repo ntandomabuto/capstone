@@ -1,9 +1,9 @@
 <template>
   <div class="app">
-    
     <div class="drag">
-    <navbar-comp/> 
-    <router-view/>
+      <navbar-comp/> 
+      <spinner-comp v-if="loading"/>
+      <router-view/>
     </div>
     <footer-comp/>
 
@@ -13,12 +13,24 @@
 <script>
 import NavbarComp from './components/NavbarComp.vue';
 import FooterComp from './components/FooterComp.vue';
+// import SpinnerComp from './components/SpinnerComp.vue';
 
 export default{
   components:{
     NavbarComp,
-    FooterComp
-  }
+    FooterComp,
+    // SpinnerComp
+  },
+  // data(){
+  //   return{
+  //     loading:true
+  //   }
+  // },
+  // mounted(){
+  //   setTimeout(()=>{
+  //     this.loading= false
+  //   },3000)
+  // }
 }
 </script>
 
