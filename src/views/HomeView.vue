@@ -116,7 +116,7 @@ export default {
     this.getRec()
     setTimeout(()=>{
       this.loading= false
-    },5000)
+    },4000)
   }
 
 }
