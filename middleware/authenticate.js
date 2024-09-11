@@ -13,7 +13,7 @@ const checkUser = async (req, res, next) => {
       compare(user_pass, pass, (err, result) => {
         if (err) throw err
         if (result == true) {
-          let token = jwt.sign({email_add: email_add, user_pass: user_pass,}, process.env.SECRET_KEY,{expiresIn:'4h'})
+          let token = jwt.sign({email_add: email_add, user_pass: user_pass,}, process.env.SECRET_KEY,{expiresIn:'2h'})
           console.log('You signed in, here is your token:'+token);
           req.body.token = token
         next()
