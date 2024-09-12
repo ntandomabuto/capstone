@@ -80,5 +80,16 @@
   }
 }
 
-
+@media screen and (max-width:780px) {
+    .loader{
+      margin-left: 350px ;
+  }
+  
+}
+@media screen and (max-width:320px) {
+    .loader{
+      margin-left: 150px ;
+  }
+  
+}
   </style>

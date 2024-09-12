@@ -5,7 +5,7 @@
             <div class="container">
     <h3>Orders list</h3>
     <div class="controls">
-      <button class="filter">Filter</button>
+      <!-- <button class="filter">Filter</button> -->
       <div class="admin-container">
         <button id="adminAddProductBtn" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#adminAddProduct">Add Order</button>
       </div>
@@ -91,8 +91,50 @@
           <td>{{ order.total_price }}</td>
           <td><p>{{ order.status }}</p></td>
           <td>
-            <button class="edit"><i class="fa-duotone fa-solid fa-pen"></i></button>
-           
+            <div class="modal fade" id="editProduct" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProductLabel">Edit Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editProductForm">
+          <div class="mb-3">
+            <label for="productNum" class="form-label">Ref number</label>
+            <input type="number" class="form-control" id="productNum" name="productNum" v-model="order.reference">
+          </div>
+          <div class="mb-3">
+            <label for="productNum" class="form-label">From Warehouse</label>
+            <input type="text" class="form-control" id="productNum" name="productNum" v-model="order.from_warehouse">
+          </div>
+          <div class="mb-3">
+            <label for="productNum" class="form-label">To Warehouse</label>
+            <input type="text" class="form-control" id="productNum" name="productNum" v-model="order.to_warehouse">
+          </div>
+       
+          <div class="mb-3">
+            <label for="productQuantity" class="form-label">Total Items</label>
+            <input type="number" class="form-control" id="productQuantity" name="products" v-model="order.total_items">
+          </div>
+          <div class="mb-3">
+            <label for="productAmount" class="form-label">Price</label>
+            <input type="number" class="form-control" id="productAmount" name="productAmount" v-model="order.total_price">
+          </div>
+          <div class="mb-3">
+            <label for="productCategory" class="form-label">Date</label>
+            <input type="date" class="form-control" id="productCategory" name="productCategory" v-model="order.date">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" @click="updateOrder(order.tra_id)">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button id="editOrderBtn" class="edit" data-bs-toggle="modal" data-bs-target="#editProduct"><i class="fa-duotone fa-solid fa-pen"></i></button>
       <button class="delete" @click="deleteOrder(order.tra_id)"><i class="fa-duotone fa-solid fa-trash"></i></button>
 
           </td>
@@ -132,10 +174,10 @@ export default {
         insertOrder(){
             this.$store.dispatch('insertOrder',this.$data)
             location.reload()
+        },
+        updateOrder(tra_id){
+            this.$store.dispatch('updateOrder',tra_id, this.$data)
         }
-        // updateOrder(tra_id){
-        //     this.$store.dispatch('updateOrder',tra_id)
-        // }
     },
     mounted(){
         this.getOrders()

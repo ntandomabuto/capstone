@@ -1,5 +1,6 @@
 <template>
     <div v-if="$cookies.get('token')" class="users">
+        <button @click="remove('token')">Logout</button>
         <h1>Users</h1>
         <table>
             <thead>
@@ -22,10 +23,50 @@
                     <td>{{ user.gender }}</td>
                     <td>{{ user.user_role }}</td>
                     <td>
-            <button class="edit"><i class="fa-duotone fa-solid fa-pen"></i></button>
-      <button class="delete" @click="deleteUser(user.user_id)"><i class="fa-duotone fa-solid fa-trash"></i></button>
+            <div class="modal fade" id="editProduct" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Edit User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editUserForm">
+          <div class="mb-3">
+            <label for="firstname" class="form-label">Firstname</label>
+            <input type="text" class="form-control" v-model="user.firstname">
+          </div>
+          <div class="mb-3">
+            <label for="lastname" class="form-label">Lastname</label>
+            <input type="text" class="form-control" v-model="user.lastname">
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control"  v-model="user.age">
+          </div>
+       
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <input type="text" class="form-control" v-model="user.gender">
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Drag your image here</label>
+            <input type="file" class="form-control">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" @click="updateUser(user.user_id)">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button id="editOrderBtn" class="edit" data-bs-toggle="modal" data-bs-target="#editProduct"><i class="fa-duotone fa-solid fa-pen"></i></button>
 
+<button class="delete" @click="deleteUser(user.user_id)"><i class="fa-duotone fa-solid fa-trash"></i></button>
           </td>
+
 
                 </tr>
             </tbody>
@@ -70,6 +111,9 @@ export default {
             this.$store.dispatch('deleteUser',user_id)
             console.log('deleted user successfully');
             location.reload()
+        },
+        updateUser(user_id){
+            this.$store.dispatch('updateUser',user_id, this.$data)
         }
     },
     mounted(){

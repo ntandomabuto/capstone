@@ -15,7 +15,8 @@ export default createStore({
     stock:null,
     recent_invoice:null,
     recent_sales:null,
-    users:null
+    users:null,
+    expenses:null
   },
   getters: {
   },
@@ -23,20 +24,26 @@ export default createStore({
     setOrders(state,payload){
       state.order=payload
     },
+    setExpenses(state,payload){
+      state.expenses=payload
+    },
     setUsers(state,payload){
       state.users=payload
     },
     deleteOrder(state, payload) {
       state.order = state.order.filter(order => order.id !== payload);
     },
+    updateOrder(state, order) {
+      state.order = state.order.map(o => o.tra_id === order.tra_id ? order : o)
+  },
+    updateUser(state, users) {
+      state.users = state.users.map(o => o.user_id === users.user_id ? users : o)
+  },
     deleteUser(state, payload) {
       state.users = state.users.filter(users => users.id !== payload);
     },
     deleteProduct(state, payload) {
       state.product = state.product.filter(product => product.id !== payload);
-    },
-    updateOrder(state,payload){
-      state.order = payload
     },
     setProducts(state,payload){
       state.product=payload
@@ -70,6 +77,17 @@ export default createStore({
         
       }
     },
+    async getExpenses({commit}){
+      try {
+        let {data} =await axios.get('https://capstone-7oya.onrender.com/ex')
+        commit('setExpenses',data)
+        
+      } catch (err) {
+        console.log(err);
+        
+      }
+    },
+   
     async getUsers({commit}){
       try {
         let {data} =await axios.get('https://capstone-7oya.onrender.com/user')
@@ -225,16 +243,24 @@ export default createStore({
         
       }
     },
-    async updateOrder({commit},tra_id){
-      try{
-        let {data} = await axios.patch(`https://capstone-7oya.onrender.com/order/${tra_id}`)
-        console.log(data);
-        
-      }catch (err){
-        console.log(err);
-        
-      }
-    }
+    async updateOrder({ commit }, tra_id) {
+      let {data} = await axios.patch(`https://capstone-7oya.onrender.com/order/${tra_id}`)
+          .then(response => {
+              commit('updateOrder', response.data)
+          })
+          .catch(error => {
+              console.error(error)
+          })
+        },
+    async updateUser({ commit }, user_id) {
+      let {data} = await axios.patch(`https://capstone-7oya.onrender.com/user/${user_id}`)
+          .then(response => {
+              commit('updateUser', response.data)
+          })
+          .catch(error => {
+              console.error(error)
+          })
+        }
   },
   modules: {
   }
