@@ -7,6 +7,7 @@ import userRoute from './routes/userRoute.js'
 import stockaRoute from './routes/stockaRoute.js'
 import refRoute from './routes/refRoute.js'
 import recRoute from './routes/recRoute.js'
+import exRoute from './routes/exRoute.js'
 
 let port = process.env.PORT || 6060
 const app = express()
@@ -24,6 +25,7 @@ app.use('/stocka',stockaRoute)
 app.use('/user',userRoute)
 app.use('/ref',refRoute)
 app.use('/rec',recRoute)
+app.use('/ex',exRoute)
 app.use(express.static('public'))
 app.listen(port,()=>{
     console.log('http://localhost:'+port);
