@@ -3,10 +3,12 @@ import { getProductsDb,getProductDb,insertProductDb,updateProductDb,deleteProduc
 
 const getProducts = async (req,res)=>{
     try {
+
         res.json(await getProductsDb())
         console.log('fetch successful');
         
     } catch (err) {
+        
         console.log(err);
         res.status(500).send('failed to fetch')
     }
