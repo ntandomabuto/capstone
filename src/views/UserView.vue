@@ -1,6 +1,6 @@
 <template>
     <div v-if="$cookies.get('token')" class="users">
-        <button @click="remove('token')">Logout</button>
+        <button @click="removeToken()" class="btn btn-secondary">Logout</button>
         <h1>Users</h1>
         <table>
             <thead>
@@ -66,8 +66,6 @@
 
 <button class="delete" @click="deleteUser(user.user_id)"><i class="fa-duotone fa-solid fa-trash"></i></button>
           </td>
-
-
                 </tr>
             </tbody>
         </table>
@@ -114,7 +112,11 @@ export default {
         },
         updateUser(user_id){
             this.$store.dispatch('updateUser',user_id, this.$data)
-        }
+        },
+        removeToken(){
+        this.$cookies.remove('token');
+        location.reload()
+    },
     },
     mounted(){
         this.getUsers()

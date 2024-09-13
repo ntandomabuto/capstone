@@ -1,4 +1,5 @@
 <template>
+  <button class="btn btn-secondary"><a href="/about" class="a">Sign Up</a></button>
     <div class="container">
       <h3><u>Top selling products</u></h3>
       <div class="chart">
@@ -75,7 +76,10 @@
     width: 400px;
     margin-top: 20px;
   }
-  
+  .a{
+    color: aliceblue;
+    text-decoration: none;
+  }
   .bar {
     width: 80px;
     background-color: red;

@@ -82,6 +82,6 @@ th {
   color: white;
 }
 #exp{
-    margin:60px;
+    margin:80px;
 }
 </style>

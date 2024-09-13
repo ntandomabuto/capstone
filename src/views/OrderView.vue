@@ -89,7 +89,7 @@
           <td>{{ order.to_warehouse }}</td>
           <td>{{ order.total_items }}</td>
           <td>{{ order.total_price }}</td>
-          <td><p>{{ order.status }}</p></td>
+          <td :class="{ 'completed': order.status === 'completed','received': order.status === 'received', 'pending':order.status === 'pending' }">{{ order.status }}</td>
           <td>
             <div class="modal fade" id="editProduct" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -198,7 +198,12 @@ export default {
   align-items: center;
   margin-bottom: 20px;
 }
-
+.received,.completed {
+  background-color: lightgreen;
+}
+.pending {
+  color: red;
+}
 .filter,.pdf {
   padding: 10px 20px;
   border: none;
